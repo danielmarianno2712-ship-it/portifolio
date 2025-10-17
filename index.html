@@ -1,204 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Dani</title>
-    <style>
-        /* Reset de margens e padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Corpo da página */
-        body {
-            font-family: 'Times New Roman', serif;
-            background-color: #717bcf;
-            color: #f593bc;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Cabeçalho (primeira página) */
-        header {
-            text-align: center;
-            margin-top: 30px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #ffffff;
-        }
-
-        header img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 5px solid #f0eff1
-            margin-bottom: 20px;
-        }
-
-        header h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            color: #f9f8fa
-            letter-spacing: 3px;
-        }
-
-        header p {
-            font-size: 1.8em;
-            color: #f8f7fa;
-            margin-top: 10px;
-        }
-
-        /* Seção Intro */
-        .intro {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 2em;
-            font-style: italic;
-            color: #ffffff;
-            border-bottom: 1px dashed #fffdfd;
-            padding-bottom: 20px;
-        }
-
-        /* Seção Sobre */
-        .sobre {
-            margin-top: 50px;
-        }
-
-        .sobre h2 {
-            font-size: 2.5em;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .sobre p {
-            font-size: 1.4em;
-            line-height: 1.8;
-            color: #ffffff;
-            text-align: justify;
-            text-indent: 40px;
-            margin-bottom: 20px;
-        }
-
-        /* Seção de Contato */
-        .contato {
-            margin-top: 50px;
-            padding: 40px 0;
-            border-top: 1px solid #ccc;
-        }
-
-        .contato h2 {
-            font-size: 2.5em;
-            color: #fffefe;
-            text-align: center;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .contato p {
-            font-size: 1.4em;
-            color: #f8f2f2;
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .contato a {
-            font-size: 1.4em;
-            color: #f8f5f5;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contato a:hover {
-            text-decoration: underline;
-        }
-
-        /* Rodapé */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 1.2em;
-            color: #fcfafa;
-            margin-top: 50px;
-            border-top: 1px solid #fcf6f6;
-        }
-
-        /* Estilo de colunas (simulando uma revista) */
-        .colunas {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        .coluna {
-            width: 48%;
-        }
-
-        .coluna img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .coluna h3 {
-            font-size: 2em;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .coluna p {
-            font-size: 1.2em;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio de Dani</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-    <!-- Cabeçalho com Foto e Nome -->
-    <header>
-        <img src="./eu vey.PNG" alt="Foto de Dani">
-        <h1>Oi, eu sou o DANI!</h1>
-
-    </header>
-
-    <!-- Seção Intro (Recado) -->
-    <section class="intro">
-        <p>amo musica,moda,literatura, cultura pop, filmes e series😎✨</p>
-    </section>
-
-    <!-- Seção Sobre -->
-    <section class="sobre">
-        <h2>Sobre Mim</h2>
-        <p> 
-Agora, falando um pouco sobre mim, eu amo séries adolescentes como The O.C., Gossip Girl e Sex and the City. Também adoro filmes de comédia romântica, como De Repente 30, Como Perder um Homem em 10 Dias, e também dramas adolescentes, como Meninas Malvadas, Sexta-Feira Muito Louca, Patricinhas de Beverly Hills, Confissões de uma Adolescente em Crise, Uptown Girls. Além disso, gosto de alguns filmes cult, como Cisne Negro, Efeito Borboleta, Shiva Baby, A Morte Lhe Cai Bem, Dogville, entre outros títulos.
-
+ 
+  <!-- Pop-up -->
+  <div id="popup" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-content" role="document">
+      <button id="closePopup" class="close" aria-label="Fechar pop-up">×</button>
+      <h3 id="popupTitle">Bem-vinda(o)!</h3>
+      <p>Olá! Se quiser conversar sobre música, filmes, moda ou livros, me manda uma mensagem. ✨</p>
+      <label class="dont-show">
+        <input type="checkbox" id="dontShow"> Não mostrar novamente
+      </label>
+    </div>
+  </div>
+ 
+  <!-- Cabeçalho com Foto, Nome e Menu -->
+  <header>
+    <div class="header-top">
+      <img src="./assests/eu vey.PNG" alt="Foto de Dani" />
+      <h1>Oi, eu sou o DANI!</h1>
+ 
+      <button id="hamburger" class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+ 
+    <nav id="mainNav" class="nav" aria-label="Menu principal">
+      <ul>
+        <li><a href="#top">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <!-- Seção Intro (Recado) -->
+  <section class="intro" id="top">
+    <p>amo musica, moda, literatura, cultura pop, filmes e series 😎✨</p>
+  </section>
+ 
+  <!-- Seção Sobre -->
+  <section class="sobre" id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>
+      Agora, falando um pouco sobre mim, eu amo séries adolescentes como The O.C., Gossip Girl e Sex and the City. Também adoro filmes de comédia romântica, como De Repente 30, Como Perder um Homem em 10 Dias, e também dramas adolescentes, como Meninas Malvadas, Sexta-Feira Muito Louca, Patricinhas de Beverly Hills, Confissões de uma Adolescente em Crise, Uptown Girls. Além disso, gosto de alguns filmes cult, como Cisne Negro, Efeito Borboleta, Shiva Baby, A Morte Lhe Cai Bem, Dogville, entre outros títulos.
+ 
 Mas como não se vive só de filmes, também amo livros. E além disso, gosto muito de música, que é como eu abasteço minha alma. Elas me fazem tão feliz! Amo várias músicas, mas para mim é mais fácil falar dos artistas: amo Britney Spears, Sabrina Carpenter, Addison Rae, Creed, The Cranberries, The Sundays, Gwen Stefani, Alanis Morissette, tate mcrae, fleetwood mac , avril lavigne , oasis, charli xcx,entre outros.
-
+ 
 Outra coisa que eu amo é moda e autocuidado, e essas duas coisas andam lado a lado. Hoje em dia, as tendências de moda chegam junto com as de beleza, e estou sempre antenada. Eu e minhas amigas somos bem ligadas a essas coisas, e trocamos figurinhas sobre tudo. Nós indicamos produtos, segredos de beleza, compartilhamos revistas, dicas de estilo, músicas, e sempre nos mandamos as melhores referências da cultura pop: artistas, modelos, notícias, fofocas, it girls da internet, memes... e tudo mais! Sinceramente, é bem gostoso ser adolescente hoje em dia, com tantas facilidades e esse estilo de vida.
-        </p>
-    </section>
-
-    <!-- Seção de Contato -->
-    <section class="contato">
-        <h2>Entre em Contato Comigo</h2>
-        <p>Se você quiser conversar sobre musica , filmes, series, moda , cultura pop ou livros me mande uma mensagem!</p>
-        <p>Instagram: <a href="https://www.instagram.com/d.marianno" target="_blank">@d.marianno</a></p>
-        <p>Email: <a href="mailto:danielmarianno2712@gmail.com">danielmarianno2712@gmail.com</a></p>
-    </section>
-
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2025 Dani | all rihgt saved</p>
-    </footer>
-
+    </p>
+  </section>
+ 
+  <!-- Seção de Contato -->
+  <section class="contato" id="contato">
+    <h2>Entre em Contato Comigo</h2>
+    <p>Se você quiser conversar sobre música, filmes, séries, moda, cultura pop ou livros me mande uma mensagem!</p>
+    <p>Instagram: <a href="https://www.instagram.com/d.marianno" target="_blank" rel="noopener">@d.marianno</a></p>
+    <p>Email: <a href="mailto:danielmarianno2712@gmail.com">danielmarianno2712@gmail.com</a></p>
+  </section>
+ 
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Dani | all right saved</p>
+  </footer>
+ 
+  <button id="topBtn" title="Voltar ao topo">↑</button>
+ 
+  <script src="script.js"></script>
 </body>
 </html>
-
- 
